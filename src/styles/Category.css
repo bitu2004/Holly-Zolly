@@ -222,6 +222,7 @@
   overflow: hidden;
   transition: all 200ms ease;
   backdrop-filter: blur(12px);
+  cursor: pointer;
 }
 
 .product-card:hover {

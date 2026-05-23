@@ -247,7 +247,7 @@ export default function Category() {
 
             <div className="products-grid">
               {filteredProducts.map((product) => (
-                <div key={product.id} className="product-card">
+                <div key={product.id} className="product-card" onClick={() => navigate(`/product/${product.id}`)}>
                   <div className="product-image-wrapper">
                     <img src={product.image} alt={product.name} className={`product-image ${product.hoverImage ? 'has-hover' : ''}`} />
                     {product.hoverImage && (
@@ -257,7 +257,8 @@ export default function Category() {
                     <div className="product-actions">
                       <button
                         className="action-btn wishlist-btn"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           if (isInWishlist(product.id)) {
                             removeFromWishlist(product.id);
                           } else {
@@ -269,7 +270,8 @@ export default function Category() {
                       </button>
                       <button
                         className="action-btn cart-btn"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           addToCart(product);
                           navigate('/cart');
                         }}
