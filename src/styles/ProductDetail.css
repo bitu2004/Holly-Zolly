@@ -458,6 +458,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .product-detail-container {
+    padding-bottom: 80px;
+  }
+
   .product-detail-main {
     grid-template-columns: 1fr;
     gap: 30px;

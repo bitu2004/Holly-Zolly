@@ -611,6 +611,14 @@ a {
 @media (max-width: 768px) {
   /* Push page content above the fixed bottom nav */
   main {
-    padding-bottom: 70px;
+    padding-bottom: 80px;
+  }
+  
+  /* For pages with custom containers */
+  .category-container,
+  .product-detail-container,
+  .cart-container,
+  .wishlist-container {
+    padding-bottom: 80px;
   }
 }

@@ -259,8 +259,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     margin-left: auto;
     background: transparent;
     border: none;
@@ -268,11 +268,26 @@
     cursor: pointer;
     padding: 0;
     flex-shrink: 0;
+    transition: all 0.25s ease;
+    border-radius: 8px;
+  }
+
+  .mobile-menu-toggle:active {
+    background: rgba(211, 154, 16, 0.12);
+  }
+
+  .mobile-menu-toggle:hover {
+    background: rgba(211, 154, 16, 0.08);
   }
 
   .mobile-menu-toggle svg {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.25s ease;
+  }
+
+  .mobile-menu-toggle:active svg {
+    transform: scale(1.1);
   }
 
   /* Hide desktop actions on mobile */
@@ -334,14 +349,17 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 58px;
-    background: #fff;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.07);
+    height: 80px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 251, 247, 0.99) 100%);
+    border-top: 1px solid rgba(29, 34, 48, 0.12);
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.1);
     z-index: 200;
     justify-content: space-around;
-    align-items: center;
-    padding: 0;
+    align-items: stretch;
+    padding-top: 10px;
+    gap: 0;
+    backdrop-filter: blur(10px);
   }
 
   .mobile-nav-item {
@@ -350,59 +368,88 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 6px;
     flex: 1;
     height: 100%;
     background: transparent;
     border: none;
     cursor: pointer;
-    color: #444;
+    color: #888;
     text-decoration: none;
-    font-size: 0.68rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 600;
     font-family: inherit;
-    padding: 0;
-    transition: color 0.15s ease;
+    padding: 8px 6px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
   }
 
-  .mobile-nav-item:hover,
-  .mobile-nav-item:focus-visible {
-    color: #b67a00;
+  .mobile-nav-item:active {
+    background: rgba(211, 154, 16, 0.12);
+    color: #d39a10;
+    transform: scale(1.05);
+  }
+
+  .mobile-nav-item:hover {
+    color: #d39a10;
+    background: rgba(211, 154, 16, 0.08);
   }
 
   .mobile-nav-item svg {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.7;
+    stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
+    transition: all 0.25s ease;
+  }
+
+  .mobile-nav-item:hover svg,
+  .mobile-nav-item:active svg {
+    width: 28px;
+    height: 28px;
   }
 
   .mobile-nav-item span {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    white-space: nowrap;
   }
 
   /* Badge for cart/wishlist count */
   .mobile-nav-badge {
     position: absolute;
-    top: 6px;
-    right: calc(50% - 18px);
+    top: 0px;
+    right: calc(50% - 22px);
     background: linear-gradient(135deg, #f0b01d, #d18c00);
     color: #fff;
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    min-width: 16px;
-    height: 16px;
-    border-radius: 8px;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 4px;
-    border: 1.5px solid #fff;
+    border: 2.5px solid #fff;
+    box-shadow: 0 3px 8px rgba(211, 140, 0, 0.4);
+    animation: badge-pulse 0.6s ease-in-out;
+  }
+
+  @keyframes badge-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
   }
 }
 
@@ -1054,17 +1101,20 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 14px 20px;
+    padding: 16px 20px;
     text-decoration: none;
     color: #1d2230;
     font-size: 0.95rem;
     font-weight: 600;
-    transition: background 0.15s ease, color 0.15s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 6px;
+    margin: 0 8px;
   }
 
   .mobile-drawer__link:hover {
-    background: rgba(211, 154, 16, 0.07);
-    color: #b67a00;
+    background: rgba(211, 154, 16, 0.1);
+    color: #d39a10;
+    transform: translateX(4px);
   }
 
   .mobile-drawer__link-label {
@@ -1072,52 +1122,55 @@
   }
 
   .mobile-drawer__link-arrow {
-    width: 16px;
-    height: 16px;
-    color: #ccc;
+    width: 18px;
+    height: 18px;
+    color: #d9d9d9;
     flex-shrink: 0;
-    transition: color 0.15s ease, transform 0.15s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
   }
 
   .mobile-drawer__link:hover .mobile-drawer__link-arrow {
-    color: #b67a00;
-    transform: translateX(3px);
+    color: #d39a10;
+    transform: translateX(6px);
   }
 
   /* ── Category section ───────────────────────────────── */
   .mobile-drawer__section-label {
-    padding: 14px 20px 8px;
-    font-size: 0.65rem;
+    padding: 18px 20px 12px;
+    font-size: 0.7rem;
     font-weight: 800;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #9ca3af;
+    color: #a0aaa8;
   }
 
   .mobile-drawer__cats {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    padding: 0 16px 20px;
+    gap: 10px;
+    padding: 0 16px 24px;
   }
 
   .mobile-drawer__cat-chip {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    padding: 7px 12px;
+    padding: 8px 14px;
     border-radius: 999px;
     background: rgba(211, 154, 16, 0.08);
-    border: 1px solid rgba(211, 154, 16, 0.2);
+    border: 1.5px solid rgba(211, 154, 16, 0.25);
     font-size: 0.72rem;
     font-weight: 700;
     color: #7a5500;
     text-decoration: none;
-    transition: background 0.15s ease, border-color 0.15s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
   }
 
   .mobile-drawer__cat-chip:hover {
-    background: rgba(211, 154, 16, 0.18);
-    border-color: rgba(211, 154, 16, 0.4);
+    background: rgba(211, 154, 16, 0.2);
+    border-color: rgba(211, 154, 16, 0.5);
+    color: #d39a10;
+    transform: translateY(-2px);
   }
 }

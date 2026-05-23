@@ -891,6 +891,24 @@
   border-radius: 0 0 20px 20px;
 }
 
+/* ══════════════════════════════════════════════════════
+   Mobile adjustments for bottom navbar
+   ══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .category-container {
+    padding-bottom: 80px;
+  }
+  
+  .category-header {
+    padding: 40px 20px;
+  }
+  
+  .category-search {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
 .pd-modal__related-head {
   display: flex;
   align-items: center;
