@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 32px;
   padding: 0 40px;
   height: 72px;
   background: rgba(255, 251, 244, 0.96);
@@ -81,23 +81,40 @@
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
+.site-nav .nav-link,
 .site-nav a {
   position: relative;
-  padding: 4px 0;
-  font-size: 0.88rem;
+  padding: 6px 0;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--muted);
   white-space: nowrap;
   transition: color 0.18s ease;
+  text-decoration: none;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav .nav-link:hover {
+  color: var(--accent);
+}
+
+.site-nav a::after,
+.site-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
   color: var(--text);
 }
 
@@ -349,15 +366,14 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 80px;
-    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    height: 70px;
+    padding: 8px 0 max(8px, env(safe-area-inset-bottom));
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 251, 247, 0.99) 100%);
     border-top: 1px solid rgba(29, 34, 48, 0.12);
     box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.1);
     z-index: 200;
     justify-content: space-around;
     align-items: stretch;
-    padding-top: 10px;
     gap: 0;
     backdrop-filter: blur(10px);
   }
@@ -368,7 +384,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 4px;
     flex: 1;
     height: 100%;
     background: transparent;
@@ -376,30 +392,28 @@
     cursor: pointer;
     color: #888;
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     font-family: inherit;
-    padding: 8px 6px;
+    padding: 6px;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 0;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
   }
 
   .mobile-nav-item:active {
-    background: rgba(211, 154, 16, 0.12);
+    background: rgba(211, 154, 16, 0.15);
     color: #d39a10;
-    transform: scale(1.05);
   }
 
   .mobile-nav-item:hover {
     color: #d39a10;
-    background: rgba(211, 154, 16, 0.08);
+    background: rgba(211, 154, 16, 0.1);
   }
 
   .mobile-nav-item svg {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.5;
@@ -410,12 +424,12 @@
 
   .mobile-nav-item:hover svg,
   .mobile-nav-item:active svg {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
 
   .mobile-nav-item span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     text-transform: capitalize;
@@ -425,21 +439,21 @@
   /* Badge for cart/wishlist count */
   .mobile-nav-badge {
     position: absolute;
-    top: 0px;
-    right: calc(50% - 22px);
+    top: -2px;
+    right: calc(50% - 20px);
     background: linear-gradient(135deg, #f0b01d, #d18c00);
     color: #fff;
     font-size: 0.65rem;
     font-weight: 700;
-    min-width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 4px;
-    border: 2.5px solid #fff;
-    box-shadow: 0 3px 8px rgba(211, 140, 0, 0.4);
+    padding: 0 3px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(211, 140, 0, 0.4);
     animation: badge-pulse 0.6s ease-in-out;
   }
 
@@ -448,7 +462,7 @@
       transform: scale(1);
     }
     50% {
-      transform: scale(1.15);
+      transform: scale(1.1);
     }
   }
 }

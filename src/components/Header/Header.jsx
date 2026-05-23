@@ -121,45 +121,10 @@ export default function Header() {
         </div>
 
         <nav className="site-nav" aria-label="Primary">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-
-          {/* Category with hover dropdown */}
-          <div className="nav-dropdown">
-            <Link to="/category" className="nav-dropdown__trigger">
-              Category
-              <svg className="nav-dropdown__chevron" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-            </Link>
-            <div className="nav-dropdown__menu" role="menu">
-              <div className="nav-dropdown__header">Shop by Category</div>
-              <Link to="/category" className="nav-dropdown__item nav-dropdown__item--all" role="menuitem">
-                <span className="nav-dropdown__item-label">All Products</span>
-                <span className="nav-dropdown__item-arrow">→</span>
-              </Link>
-              {[
-                { label: 'AAYUDH FRAME',      cat: 'AAYUDH FRAME' },
-                { label: 'VASTUKALP PRODUCT', cat: 'VASTUKALP PRODUCT' },
-                { label: 'RUDRAKSH',          cat: 'RUDRAKSH' },
-                { label: 'YANTRA',            cat: 'YANTRA' },
-                { label: 'POOJA VIDHI',       cat: 'POOJA VIDHI' },
-                { label: 'PLANET GLOW',       cat: 'PLANET GLOW' },
-              ].map(({ label, cat }) => (
-                <Link
-                  key={cat}
-                  to={`/category?cat=${encodeURIComponent(cat)}`}
-                  className="nav-dropdown__item"
-                  role="menuitem"
-                >
-                  <span className="nav-dropdown__item-label">{label}</span>
-                  <span className="nav-dropdown__item-arrow">→</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <Link to="/orders">Orders</Link>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/category" className="nav-link">Category</Link>
+          <Link to="/orders" className="nav-link">Orders</Link>
         </nav>
 
         {/* Desktop action icons — hidden on mobile, shown in bottom-nav instead */}
