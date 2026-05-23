@@ -1,0 +1,417 @@
+/* ══════════════════════════════════════════════════════
+   Footer
+   ══════════════════════════════════════════════════════ */
+
+.site-footer {
+  width: 100%;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* ── CTA Banner ───────────────────────────────────────── */
+.footer-banner {
+  background: linear-gradient(rgba(20, 24, 38, 0.88), rgba(20, 24, 38, 0.88)),
+              url('/images/footer-bg.jpg') center / cover no-repeat;
+  padding: 64px 0;
+}
+
+.footer-banner-inner {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.banner-copy h3 {
+  margin: 0 0 10px;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.banner-copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.footer-btn--primary {
+  background: linear-gradient(135deg, #e8824a, #f5a623);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(232, 130, 74, 0.4);
+}
+
+.footer-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(232, 130, 74, 0.5);
+}
+
+.footer-btn--secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+}
+
+.footer-btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── Trust bar ────────────────────────────────────────── */
+.footer-trust-bar {
+  background: #1e2235;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 13px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.footer-trust-bar__dot {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* ── Main grid ────────────────────────────────────────── */
+.footer-main {
+  background: #e9ebee;
+  padding: 56px 0 48px;
+}
+
+.footer-grid {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── Column base ──────────────────────────────────────── */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer-logo {
+  width: 68px;
+  height: auto;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.footer-brand-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #4b5563;
+  max-width: 280px;
+}
+
+.footer-col__heading {
+  margin: 0 0 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a2e;
+}
+
+.footer-col__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col__list a {
+  font-size: 0.88rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+  display: inline-block;
+}
+
+.footer-col__list a:hover {
+  color: #e8824a;
+  padding-left: 4px;
+}
+
+/* ── Contact list ─────────────────────────────────────── */
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-contact-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  color: #e8824a;
+}
+
+.footer-contact-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footer-contact-list a {
+  font-size: 0.88rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  line-height: 1.5;
+}
+
+.footer-contact-list a:hover {
+  color: #e8824a;
+}
+
+.footer-contact-address address {
+  font-style: normal;
+  font-size: 0.88rem;
+  color: #4b5563;
+  line-height: 1.65;
+}
+
+/* ── Social icons ─────────────────────────────────────── */
+.footer-social {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-social__btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(26, 26, 46, 0.1);
+  color: #4b5563;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(26, 26, 46, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.footer-social__btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.footer-social__btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(26, 26, 46, 0.12);
+  color: #e8824a;
+}
+
+.footer-social__btn--whatsapp:hover {
+  background: #25d366;
+  color: #fff;
+  border-color: #25d366;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
+/* ── Copyright ────────────────────────────────────────── */
+.footer-copyright {
+  background: #d8dade;
+  border-top: 1px solid rgba(26, 26, 46, 0.08);
+  text-align: center;
+  padding: 16px 24px;
+  font-size: 0.82rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════════════════════
+   Floating WhatsApp FAB
+   ══════════════════════════════════════════════════════ */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease;
+}
+
+.whatsapp-fab svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow: 0 12px 36px rgba(37, 211, 102, 0.55);
+}
+
+/* Pulse ring animation */
+.whatsapp-fab::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.5);
+  animation: waPulse 2s ease-out infinite;
+}
+
+@keyframes waPulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  70%  { transform: scale(1.3); opacity: 0; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* ══════════════════════════════════════════════════════
+   Responsive
+   ══════════════════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .footer-col--brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-banner {
+    padding: 48px 0;
+  }
+
+  .footer-banner-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .banner-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .banner-copy h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer-trust-bar {
+    gap: 12px;
+    font-size: 0.8rem;
+  }
+
+  .footer-trust-bar__dot {
+    display: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .whatsapp-fab {
+    bottom: 70px; /* above the 58px fixed bottom nav */
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .footer-banner {
+    padding: 36px 0;
+  }
+
+  .banner-copy h3 {
+    font-size: 1.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-col--brand {
+    grid-column: auto;
+  }
+
+  .whatsapp-fab {
+    bottom: 70px; /* above the 58px fixed bottom nav */
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-fab svg {
+    width: 24px;
+    height: 24px;
+  }
+}

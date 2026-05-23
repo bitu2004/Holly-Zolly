@@ -1,0 +1,148 @@
+/* src/pages/Contact.css */
+.contact-page-main {
+  min-height: calc(100vh - 80px);
+}
+
+.contact-hero {
+  background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color, #eee);
+}
+
+.contact-hero h1 {
+  font-family: var(--font-heading, serif);
+  font-size: 2.5rem;
+  color: var(--text-color, #333);
+  margin-bottom: 1rem;
+}
+
+.contact-hero p {
+  color: var(--text-muted, #666);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+.contact-form-panel h2, .contact-info-panel h2 {
+  font-family: var(--font-heading, serif);
+  font-size: 1.8rem;
+  color: var(--text-color, #333);
+  margin-bottom: 1rem;
+}
+
+.contact-form-panel {
+  scroll-margin-top: 88px;
+}
+
+.contact-info-panel > p {
+  color: var(--text-muted, #666);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.detail-icon {
+  font-size: 1.5rem;
+  background: var(--bg-secondary, #f9f9f9);
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-color, #eee);
+}
+
+.detail-item strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--text-color, #333);
+  margin-bottom: 0.25rem;
+}
+
+.detail-item p, .detail-item a {
+  color: var(--text-muted, #666);
+  text-decoration: none;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.detail-item a:hover {
+  color: var(--primary-color, #d4af37);
+  text-decoration: underline;
+}
+
+.contact-form {
+  background: var(--bg-surface, #fff);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color, #eee);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-color, #333);
+}
+
+.form-group input, .form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background-color: var(--bg-secondary, #fafafa);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color, #d4af37);
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(212,175,55,0.2);
+}
+
+.contact-form .button {
+  align-self: flex-start;
+  margin-top: 1rem;
+}

@@ -1,0 +1,224 @@
+/* Card size tokens */
+:root {
+  --card-w:   160px;
+  --card-gap:  20px;
+}
+
+.vastu-categories {
+  padding-top: 80px;
+  padding-bottom: 48px;
+}
+
+/* ── Head ─────────────────────────────────────────────── */
+.vastu-categories__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.vastu-categories__eyebrow {
+  margin: 0 0 10px;
+  padding-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--accent-strong);
+}
+
+.vastu-categories__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.vastu-categories__title span {
+  color: var(--accent-strong);
+}
+
+.vastu-categories__desc {
+  margin: 0;
+  max-width: 320px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ── Slider wrapper ───────────────────────────────────── */
+.vc-slider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ── Viewport ─────────────────────────────────────────── */
+.vc-viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 10px 2px 18px;
+}
+
+/* ── Strip ────────────────────────────────────────────── */
+.vc-strip {
+  display: flex;
+  flex-direction: row;
+  gap: var(--card-gap);
+  transition: transform 420ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ── Arrows ───────────────────────────────────────────── */
+.vc-arrow {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(29, 34, 48, 0.14);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(29, 34, 48, 0.08);
+  transition: background 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease,
+              transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.18s ease;
+}
+
+.vc-arrow svg {
+  width: 18px;
+  height: 18px;
+  color: #1d2230;
+  transition: color 0.18s ease;
+}
+
+.vc-arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px rgba(211, 154, 16, 0.32);
+  transform: scale(1.1);
+}
+
+.vc-arrow:hover svg { color: #fff; }
+
+.vc-arrow:active { transform: scale(0.93); }
+
+.vc-arrow--dim {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Cards ────────────────────────────────────────────── */
+.vastu-cat-card {
+  flex: 0 0 var(--card-w);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vastu-cat-card:hover,
+.vastu-cat-card.is-active {
+  transform: translateY(-6px);
+}
+
+.vastu-cat-card__visual {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease,
+              box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vastu-cat-card.is-active .vastu-cat-card__visual,
+.vastu-cat-card:hover .vastu-cat-card__visual {
+  border-color: var(--accent-strong);
+  box-shadow: 0 16px 32px rgba(182, 122, 0, 0.2),
+              0 8px 16px rgba(182, 122, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.vastu-cat-card__label {
+  margin: 12px 0 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.vastu-cat-card.is-active .vastu-cat-card__label,
+.vastu-cat-card:hover .vastu-cat-card__label {
+  color: var(--accent-strong);
+}
+
+.vastu-cat-card__explore {
+  margin-top: 5px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent-strong);
+}
+
+/* ── Dots ─────────────────────────────────────────────── */
+.vc-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.vc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(29, 34, 48, 0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.vc-dot--active {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+/* ── Tablet (≤768px) ──────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --card-w: 140px;
+    --card-gap: 16px;
+  }
+
+  .vastu-categories__head { flex-direction: column; gap: 16px; }
+  .vastu-categories__desc { text-align: left; max-width: none; }
+
+  .vc-arrow { width: 36px; height: 36px; }
+  .vc-arrow svg { width: 16px; height: 16px; }
+}
+
+/* ── Mobile (≤480px) ──────────────────────────────────── */
+@media (max-width: 480px) {
+  :root {
+    --card-w: 118px;
+    --card-gap: 12px;
+  }
+
+  .vastu-categories { padding-top: 56px; padding-bottom: 32px; }
+  .vc-slider { gap: 8px; }
+  .vc-arrow { width: 32px; height: 32px; }
+  .vastu-cat-card__label { font-size: 0.62rem; }
+}

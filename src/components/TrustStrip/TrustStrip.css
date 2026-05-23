@@ -1,0 +1,152 @@
+.trust-strip {
+  position: relative;
+  width: 100%;
+  background: #eaeaea;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.trust-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(232, 130, 74, 0.04) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 50%, rgba(232, 130, 74, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Wavy SVG line */
+.trust-strip__wave {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.trust-strip__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+/* ── Each item ────────────────────────────────────────── */
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 0 12px;
+  position: relative;
+}
+
+/* Icon container — Solid orange circle */
+.trust-item__circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: #e8824a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 12px 36px rgba(232, 130, 74, 0.35);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.trust-item:hover .trust-item__circle {
+  transform: translateY(-8px);
+  background: #d96d32;
+  box-shadow: 0 20px 48px rgba(232, 130, 74, 0.5);
+}
+
+.trust-item__circle svg {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+}
+
+/* Label */
+.trust-item__label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: #fff;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* ── Tablet ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .trust-strip {
+    padding: 60px 0;
+  }
+  
+  .trust-item__circle {
+    width: 140px;
+    height: 140px;
+    gap: 8px;
+  }
+  
+  .trust-item__circle svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .trust-item__label {
+    font-size: 0.65rem;
+  }
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .trust-strip {
+    padding: 48px 0;
+  }
+
+  .trust-strip__inner {
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .trust-item {
+    flex: 0 0 calc(50% - 16px);
+    padding: 0;
+  }
+
+  .trust-item__circle {
+    width: 130px;
+    height: 130px;
+    gap: 6px;
+  }
+
+  .trust-item__circle svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .trust-item__label {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .trust-item {
+    flex: 0 0 100%;
+  }
+}

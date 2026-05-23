@@ -1,0 +1,244 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: clamp(420px, 70vh, 720px);
+  background: #f5efe6;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  will-change: opacity;
+}
+
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  will-change: transform;
+}
+
+.carousel-slide--out {
+  z-index: 1;
+  animation: csFadeOut 900ms ease forwards;
+}
+
+@keyframes csFadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.carousel-slide--in {
+  z-index: 2;
+  animation: csFadeIn 900ms ease forwards;
+}
+
+.carousel-slide--in img {
+  animation: csKenBurns 7000ms ease-out forwards;
+}
+
+@keyframes csFadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes csKenBurns {
+  0%   { transform: scale(1.08) translateX(1%); }
+  100% { transform: scale(1.0)  translateX(0%); }
+}
+
+.carousel-slide-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.20) 50%,
+    rgba(255, 255, 255, 0.0)  100%
+  );
+  pointer-events: none;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(29, 34, 48, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease, box-shadow 0.2s ease,
+              transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+  color: #1d2230;
+  transition: transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.left:hover  svg { transform: translateX(-2px); }
+.carousel-arrow.right:hover svg { transform: translateX(2px); }
+
+.carousel-arrow:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.93);
+}
+
+.carousel-arrow.left  { left: 24px; }
+.carousel-arrow.right { right: 24px; }
+
+.carousel-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  z-index: 6;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  position: relative;
+  width: 28px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(29, 34, 48, 0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  transition: background 0.2s ease,
+              width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dot:hover { background: rgba(29, 34, 48, 0.35); }
+
+.dot.active {
+  width: 56px;
+  background: rgba(29, 34, 48, 0.12);
+}
+
+.dot-progress {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  animation: dotFill linear forwards;
+}
+
+@keyframes dotFill {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+
+@media (max-width: 1024px) {
+  .carousel { height: clamp(380px, 65vh, 620px); }
+}
+
+@media (max-width: 768px) {
+  .carousel { height: clamp(320px, 58vh, 520px); }
+
+  .carousel-arrow { width: 40px; height: 40px; }
+  .carousel-arrow svg { width: 18px; height: 18px; }
+  .carousel-arrow.left  { left: 14px; }
+  .carousel-arrow.right { right: 14px; }
+
+  .carousel-slide-gradient {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(255, 255, 255, 0.30) 55%,
+      rgba(255, 255, 255, 0.0)  100%
+    );
+  }
+}
+
+/* ── Mobile ≤480px ──────────────────────────────────────── */
+@media (max-width: 490px) {
+  /* Height = width × (2348/1760) ≈ width × 1.334
+     At 390px wide → ~520px tall. Use aspect-ratio for perfect fit. */
+  .carousel {
+    height: auto;
+    aspect-ratio: 1760 / 2348;
+    background: #f5c842;
+    overflow: hidden;
+  }
+
+  /* Full image — no cropping, show the entire pre-designed mobile slide */
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* Remove gradient — mobile Frame images have their own background */
+  .carousel-slide-gradient {
+    display: none;
+  }
+
+  /* Hide arrows — swipe to navigate */
+  .carousel-arrow {
+    display: none;
+  }
+
+  /* Dots at bottom center */
+  .carousel-dots {
+    bottom: 16px;
+    gap: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: none;
+  }
+
+  .dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .dot.active {
+    width: 32px;
+    height: 10px;
+    border-radius: 5px;
+    background: #2a2a2a;
+  }
+
+  .dot-progress { display: none; }
+}

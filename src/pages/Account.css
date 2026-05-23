@@ -1,0 +1,137 @@
+.account-main {
+  position: relative;
+  min-height: calc(100vh - 200px);
+  padding-bottom: 48px;
+}
+
+.account-section {
+  padding-top: 24px;
+}
+
+.account-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.account-back:hover {
+  color: var(--accent-strong);
+}
+
+.account-back-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.account-card {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 36px 32px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.account-avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #9b7b2e);
+  box-shadow: 0 12px 28px rgba(179, 122, 0, 0.25);
+}
+
+.account-title {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.account-greeting {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.account-details {
+  margin: 0;
+  text-align: left;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.account-detail-row {
+  display: grid;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.account-detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.account-detail-row dt {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.account-detail-row dd {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.account-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(43, 138, 62, 0.12);
+  color: #2b8a3e;
+}
+
+.account-actions {
+  margin-top: 28px;
+}
+
+.account-signout {
+  width: 100%;
+  padding: 12px 18px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: var(--text);
+  background: rgba(29, 34, 48, 0.06);
+  border: 1px solid var(--line);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.account-signout:hover {
+  background: rgba(29, 34, 48, 0.09);
+}
+
+.account-signout:active {
+  transform: translateY(1px);
+}

@@ -1,0 +1,201 @@
+.wcu-section {
+  padding: 80px 0;
+  background: transparent;
+}
+
+/* ── Head ─────────────────────────────────────────────── */
+.wcu__head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.wcu__eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #e8824a;
+  background: rgba(232, 130, 74, 0.1);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.wcu__heading {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1a1a2e;
+}
+
+.wcu__subheading {
+  margin: 0;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* ── Two-column layout ────────────────────────────────── */
+.wcu__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── FAQ list ─────────────────────────────────────────── */
+.wcu__faq {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Each item ────────────────────────────────────────── */
+.wcu-faq-item {
+  border-bottom: 1px solid rgba(26, 26, 46, 0.08);
+  /* NO overflow:hidden here — it blocks the slide animation */
+}
+
+.wcu-faq-item:first-child {
+  border-top: 1px solid rgba(26, 26, 46, 0.08);
+}
+
+/* ── Question row ─────────────────────────────────────── */
+.wcu-faq-item__q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: default;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.wcu-faq-item:hover .wcu-faq-item__q,
+.wcu-faq-item.is-open .wcu-faq-item__q {
+  color: #e8824a;
+}
+
+/* ── Plus / × icon ────────────────────────────────────── */
+.wcu-faq-item__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(26, 26, 46, 0.05);
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.wcu-faq-item__icon svg {
+  width: 14px;
+  height: 14px;
+  color: #6b7280;
+  transition: color 0.22s ease;
+  overflow: visible;
+}
+
+/* Vertical bar of the + sign — rotates to hide when open (making ×) */
+.wcu-icon-v {
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: center;
+}
+
+.wcu-faq-item.is-open .wcu-faq-item__icon {
+  background: linear-gradient(135deg, #e8824a, #f5a623);
+  transform: rotate(45deg);
+}
+
+.wcu-faq-item.is-open .wcu-faq-item__icon svg {
+  color: #fff;
+}
+
+/* ── Answer — smooth slide using grid trick ───────────── */
+.wcu-faq-item__body {
+  display: grid;
+  grid-template-rows: 0fr;          /* collapsed */
+  transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wcu-faq-item.is-open .wcu-faq-item__body {
+  grid-template-rows: 1fr;          /* expanded */
+}
+
+/* Inner wrapper must have min-height:0 for the grid trick to work */
+.wcu-faq-item__a {
+  overflow: hidden;
+  min-height: 0;
+  margin: 0;
+  padding: 0 48px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: #6b7280;
+  /* Fade in when expanding */
+  opacity: 0;
+  transition: opacity 0.25s ease 0.05s, padding-bottom 0.3s ease;
+}
+
+.wcu-faq-item.is-open .wcu-faq-item__a {
+  opacity: 1;
+  padding-bottom: 20px;
+}
+
+/* ── Image ────────────────────────────────────────────── */
+.wcu__img-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f5f0ea;
+  box-shadow: 0 24px 64px rgba(26, 26, 46, 0.12);
+}
+
+.wcu__img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(26, 26, 46, 0.3) 100%
+  );
+  pointer-events: none;
+}
+
+.wcu__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.wcu__img-wrap:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Tablet ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .wcu__body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .wcu__img-wrap {
+    order: -1;
+  }
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .wcu-section    { padding: 56px 0; }
+  .wcu__head      { margin-bottom: 36px; }
+  .wcu-faq-item__q { font-size: 0.88rem; }
+  .wcu-faq-item__a { padding-right: 0; }
+}

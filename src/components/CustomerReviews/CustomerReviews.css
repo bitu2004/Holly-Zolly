@@ -1,0 +1,178 @@
+.cr-section {
+  padding: 80px 0 96px;
+  background: transparent;
+}
+
+.cr__head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.cr__eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #e8824a;
+  background: rgba(232, 130, 74, 0.1);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.cr__title {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1a1a2e;
+}
+
+.cr__subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* ── 3-column grid ────────────────────────────────────── */
+.cr__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* ── Review card ──────────────────────────────────────── */
+.cr-card {
+  background: #fff;
+  border: 1px solid rgba(26, 26, 46, 0.07);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 2px 12px rgba(26, 26, 46, 0.04);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent top border on hover */
+.cr-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e8824a, #f5a623);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.cr-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(26, 26, 46, 0.1);
+}
+
+.cr-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Quote mark */
+.cr-card__quote-mark {
+  font-size: 4rem;
+  line-height: 0.5;
+  color: rgba(232, 130, 74, 0.15);
+  font-family: Georgia, serif;
+  font-weight: 900;
+  margin-bottom: -8px;
+}
+
+/* Stars */
+.cr-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.cr-star {
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+.cr-star--on {
+  color: #f59e0b;
+}
+
+/* Quote */
+.cr-card__quote {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: #4b5563;
+  flex: 1;
+  font-style: italic;
+}
+
+/* Author */
+.cr-card__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(26, 26, 46, 0.06);
+  padding-top: 18px;
+}
+
+.cr-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8824a, #f5a623);
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.cr-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cr-card__name {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.cr-card__role {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+/* ── Tablet ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cr__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cr__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .cr-section { padding: 56px 0 64px; }
+  .cr__head   { margin-bottom: 36px; }
+}
