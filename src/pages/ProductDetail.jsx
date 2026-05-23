@@ -258,9 +258,6 @@ export default function ProductDetail() {
               <label>SELECT SIZE</label>
               <div className="size-options">
                 <button className="size-btn active">5.5</button>
-                <button className="size-btn">6</button>
-                <button className="size-btn">6.5</button>
-                <button className="size-btn">7</button>
               </div>
             </div>
 
